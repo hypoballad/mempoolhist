@@ -1,0 +1,6 @@
+[bitcoin]
+dir = "/pathto/bitcoincore/bin"
+bin = "bitcoin-cli"
+
+[job]
+download_mementry = "@every 2m"
