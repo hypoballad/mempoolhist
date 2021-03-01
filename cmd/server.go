@@ -31,7 +31,7 @@ import (
 )
 
 type server struct {
-	mempoolapi.UnsafeMempoolServiceServer
+	mempoolapi.UnimplementedMempoolServiceServer
 }
 
 func (s server) GetMementry(ctx context.Context, in *mempoolapi.TxidParam) (*mempoolapi.JsonResp, error) {
