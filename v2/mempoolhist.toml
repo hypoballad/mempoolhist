@@ -1,0 +1,8 @@
+[bitcoin]
+rpcconnect = ""
+rpcuser = ""
+rpcpassword = ""
+rpcport = 8332
+
+[job]
+download_mementry = "@every 1m"

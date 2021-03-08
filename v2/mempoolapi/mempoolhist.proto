@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.hypoballad.mempoolhist.mempoolapi";
+option java_outer_classname = "mempoolapi";
+
+package mempoolapi;
+
+// Mempool Api
+service MempoolService {
+    // You can get the confirmed raw transaction.
+    rpc GetMementry(TxidParam) returns (JsonResp) {}
+    // You can get the confirmed mempool entry.
+    rpc GetMementryTime(TxidParam) returns (TimeResp) {}
+    // You can get the confirmed tx and time.
+    rpc FindMempoolhist(TimerangeParam) returns (MemHistArray) {}
+}
+
+message TxidParam {
+    string txid = 1; // the txid
+}
+
+message JsonResp {
+    string json = 1;
+}
+
+message TimeResp {
+    int64 uts = 1;
+}
+
+message TimerangeParam {
+    int64 start = 1;
+    int64 stop = 2;
+    bool asc = 3;
+}
+
+message MemHist {
+    int64 uts = 1;
+    string txid = 2; // the txid
+}
+
+message MemHistArray {
+    repeated MemHist memhist = 1;
+}
